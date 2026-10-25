@@ -224,9 +224,22 @@ def build_prompt_summary(data: dict) -> str:
         dll = imp.get("dll", "UNKNOWN")
         funcs = imp.get("functions", [])
         ord_count = imp.get("ordinal_count", 0)
-        flagged = [f"{f.get('name')} [{f.get('category')}]" for f in funcs if f.get("category")]
-        flagged_str = f"; Flagged APIs: {', '.join(flagged)}" if flagged else ""
-        lines.append(f"- **{dll}**: {len(funcs)} functions, {ord_count} ordinals{flagged_str}")
+
+        flagged = [f for f in funcs if f.get("category")]
+        clean   = [f for f in funcs if not f.get("category")]
+
+        # Always show flagged APIs with their category label
+        parts = [f"{f.get('name')} [{f.get('category')}]" for f in flagged]
+
+        # Show up to 8 clean function names so the LLM understands what the DLL is used for
+        SAMPLE_LIMIT = 8
+        sample = clean[:SAMPLE_LIMIT]
+        parts += [f.get("name", "") for f in sample]
+        if len(clean) > SAMPLE_LIMIT:
+            parts.append(f"... and {len(clean) - SAMPLE_LIMIT} more")
+
+        funcs_str = ", ".join(parts) if parts else "(none)"
+        lines.append(f"- **{dll}** ({len(funcs)} functions, {ord_count} ordinals): {funcs_str}")
 
     return "\n".join(lines)
 
