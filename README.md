@@ -1,10 +1,10 @@
-# pelens
+# PELens
 
 When you receive a suspicious executable -- from an email attachment, an incident report, a malware feed, or just a binary you don't recognize -- the first question is always: **what does this file actually do?**
 
 Running it is not an option. You need to look inside without executing it.
 
-`pelens` is a static analysis tool that does exactly that. It reads a Windows PE binary (`.exe`, `.dll`, `.sys`) and extracts everything structurally meaningful: cryptographic hashes, compile timestamp, section layout, entropy, security mitigations, and the full list of imported Windows API functions -- all without executing a single instruction of the target file.
+`PELens` is a static analysis tool that does exactly that. It reads a Windows PE binary (`.exe`, `.dll`, `.sys`) and extracts everything structurally meaningful: cryptographic hashes, compile timestamp, section layout, entropy, security mitigations, and the full list of imported Windows API functions -- all without executing a single instruction of the target file.
 
 The second component, `ai_analyzer.py`, takes that extracted data and sends it to an LLM to produce a written triage report: what the binary is likely capable of, what stands out as suspicious, and what an analyst should look at next.
 
