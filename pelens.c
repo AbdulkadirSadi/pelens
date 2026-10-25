@@ -819,7 +819,7 @@ int wmain(int argc, wchar_t* argv[]) {
 
     /* Console banner */
     printf("=======================================================\n");
-    printf("  pelens — PE Static Analysis Tool\n");
+    printf("  PELens — PE Static Analysis Tool\n");
     printf("  Fast. Portable. Forensic-Grade.\n");
     printf("=======================================================\n");
     printf("[*] Target Binary                   : %s\n", baseName);

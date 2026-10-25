@@ -84,7 +84,7 @@ Example output against a clean Windows calculator binary:
 
 ```
 =======================================================
-  pelens -- PE Static Analysis Tool
+  PELens -- PE Static Analysis Tool
   Fast. Portable. Forensic-Grade.
 =======================================================
 [*] Target Binary                   : calc.exe
