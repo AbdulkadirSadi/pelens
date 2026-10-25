@@ -1,0 +1,4 @@
+requests>=2.28.0
+
+# Optional: only needed if using the google-genai SDK directly (not required for OpenAI-compat endpoint)
+# google-genai>=1.0.0

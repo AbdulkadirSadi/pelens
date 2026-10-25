@@ -1,0 +1,39 @@
+# Compiled binaries
+*.exe
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# Build artifacts
+gcc_err.txt
+gcc_out.txt
+
+# PE analysis outputs — these contain file paths and analysis data
+pelens_report.json
+peview_report.json
+sentinel_report.json
+parser_report.json
+PELENS_AI_REPORT.md
+PEVIEW_AI_REPORT.md
+SENTINEL_AI_REPORT.md
+
+# Test binaries — do not commit real or suspicious executables
+calc.exe
+*.dll
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
